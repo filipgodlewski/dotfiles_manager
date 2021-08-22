@@ -1,0 +1,23 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "dotfiles_manager"
+version = "0.1.0"
+description = "Simple dotfiles manager written in Python"
+readme = "README.md"
+authors = ["Filip Godlewski <filip.godlewski@outlook.com>"]
+license = "MIT"
+homepage = "https://github.com/filipgodlewski/dotfiles_manager"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+click = "^8.0.1"
+GitPython = "^3.1.18"
+
+[tool.poetry.scripts]
+dotfiles_manager = "dotfiles_manager.cli:cli"
