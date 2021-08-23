@@ -17,4 +17,5 @@ def submodules(ctx: Dotfiles):
     """Operate on your dotfiles' git submodules."""
     pass
 
+
 submodules.add_command(add)
