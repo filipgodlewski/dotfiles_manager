@@ -18,6 +18,14 @@ python = "^3.9"
 pytest = "^6.2.4"
 click = "^8.0.1"
 GitPython = "^3.1.18"
+yapf = "^0.31.0"
 
 [tool.poetry.scripts]
 dotfiles_manager = "dotfiles_manager.cli:cli"
+
+[tool.yapf]
+column_limit = 88
+split_before_named_assigns = false
+split_before_arithmetic_operator = true
+split_before_dot = true
+split_complex_comprehension = true
