@@ -10,9 +10,8 @@ from dotfiles_manager.utils.dotfiles import Dotfiles
 # type=click.Choice([d for d in ctx.DIRS], case_sensitive=True))
 @click.argument("target")
 @click.pass_obj
-def add(ctx: Dotfiles, folder: str, target: str):
+def add(ctx: Dotfiles, folder: str, target: str) -> None:
     """Add new submodule under specified directory in your dotfiles."""
-    breakpoint()
     if folder not in ctx.DIRS:
         raise KeyError(f"{folder} not in dirs. Use `--help` flag for more information")
     url, name, relative_path = get_submodule_info(ctx, folder, target)

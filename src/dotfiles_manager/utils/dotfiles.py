@@ -5,7 +5,7 @@ from git import Repo
 
 
 class Dotfiles:
-    DOTFILES_PATH = join(expanduser("~"), "dotfiles")
+    DOTFILES_PATH: str = join(expanduser("~"), "dotfiles")
     DIRS: Dict[str, str] = {
         "alacritty": "share/alacritty",
         "nvim": "share/nvim/site/pack/plugins/start",
@@ -16,5 +16,5 @@ class Dotfiles:
     GH_DOMAIN = "https://github.com/"
     GH_OBJECT = ".git"
 
-    def __init__(self):
-        self.repo = Repo(self.DOTFILES_PATH)
+    def __init__(self) -> None:
+        self.repo: Repo = Repo(self.DOTFILES_PATH)
