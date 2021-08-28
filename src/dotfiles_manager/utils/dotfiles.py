@@ -1,7 +1,12 @@
+from __future__ import annotations
+
 from os.path import expanduser, join
-from typing import Dict
+from typing import TYPE_CHECKING
 
 from git import Repo
+
+if TYPE_CHECKING:
+    from typing import Dict
 
 
 class Dotfiles:

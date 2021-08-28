@@ -1,8 +1,14 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 import click
 
 from dotfiles_manager.subcommands.submodules import add
 from dotfiles_manager.utils.dotfiles import Dotfiles
-from click import Context
+
+if TYPE_CHECKING:
+    from click import Context
 
 
 @click.group()

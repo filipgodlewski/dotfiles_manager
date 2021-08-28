@@ -1,8 +1,14 @@
+from __future__ import annotations
+
 from os.path import join
-from typing import Tuple
+from typing import TYPE_CHECKING
 
 import click
-from dotfiles_manager.utils.dotfiles import Dotfiles
+
+if TYPE_CHECKING:
+    from typing import Tuple
+
+    from dotfiles_manager.utils.dotfiles import Dotfiles
 
 
 @click.command()
@@ -20,16 +26,14 @@ def add(ctx: Dotfiles, folder: str, target: str) -> None:
     click.secho(f"Name: {name}", fg="yellow")
     click.echo(f"Path: {relative_path}")
     click.echo(f"URL: {url}")
-    ctx.repo.submodule_update(recursive=True, force_remove=True, init=True,
-                              force_reset=True)
+    ctx.repo.submodule_update(recursive=True, force_remove=True, init=True, force_reset=True)
     click.secho("\nUpdated recursively all submodules.", fg="green")
 
 
 def get_submodule_info(ctx: Dotfiles, folder: str, target: str) -> Tuple[str, str, str]:
     """Gets necessary Github information based on the repository name and end dir."""
 
-    cleaned_target: str = target[:-1] if target.endswith(ctx.GH_OBJECT
-                                                         + "/") else target
+    cleaned_target: str = target[:-1] if target.endswith(ctx.GH_OBJECT + "/") else target
     is_gh_domain: bool = cleaned_target.startswith(ctx.GH_DOMAIN)
     is_gh_object: bool = cleaned_target.endswith(ctx.GH_OBJECT)
     if is_gh_domain and is_gh_object:
