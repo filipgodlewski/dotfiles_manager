@@ -13,19 +13,31 @@ homepage = "https://github.com/filipgodlewski/dotfiles_manager"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+click = "^8.0.1"
+GitPython = "^3.1.18"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
-click = "^8.0.1"
-GitPython = "^3.1.18"
 yapf = "^0.31.0"
+pyre-check = "^0.9.3"
+flake8-bugbear = "^21.4.3"
+flake8-builtins = "^1.5.3"
+flake8-mutable = "^1.2.0"
+flake8-eradicate = "^1.1.0"
+flake8-pytest-style = "^1.5.0"
+flake8-aaa = "^0.12.0"
 
 [tool.poetry.scripts]
 dotfiles_manager = "dotfiles_manager.cli:cli"
 
 [tool.yapf]
-column_limit = 88
+column_limit = 96
 split_before_named_assigns = false
 split_before_arithmetic_operator = true
 split_before_dot = true
 split_complex_comprehension = true
+
+[tool.isort]
+line_length = 96
+add_imports = ["from __future__ import annotations", "from typing import TYPE_CHECKING"]
+append_only = true
